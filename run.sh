@@ -1,0 +1,2 @@
+set OPENAI_API_KEY=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
+python visual_chatgpt_zh.py --load ImageCaptioning_cuda:0,Text2Image_cuda:0 --pretrained_model_dir models_path
