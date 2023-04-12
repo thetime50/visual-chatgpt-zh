@@ -96,14 +96,15 @@ class ConversationBot:
 
         self.models = dict()
         for class_name, device in load_dict.items():
+            # 加载功能模块文件，指定设备和模型路径
             self.models[class_name] = globals()[class_name](device=device, pretrained_model_dir=pretrained_model_dir)
 
         self.tools = []
-        for class_name, instance in self.models.items():
-            for e in dir(instance):
+        for class_name, instance in self.models.items(): # 遍历模块
+            for e in dir(instance): # 遍历模块下的方法名
                 if e.startswith('inference'):
-                    func = getattr(instance, e)
-                    self.tools.append(Tool(name=func.name, description=func.description, func=func))
+                    func = getattr(instance, e) # 获取inference方法
+                    self.tools.append(Tool(name=func.name, description=func.description, func=func)) # inference 方法加入tools
 
         self.agent = initialize_agent(
             self.tools,

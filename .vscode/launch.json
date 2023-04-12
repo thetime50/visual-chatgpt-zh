@@ -16,6 +16,19 @@
         "OPENAI_API_KEY":"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",
         "all_proxy": "socks5://127.0.0.1:10808"
       }
+    },
+    {
+      "name": "Python: openai_test",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/openai_test.py",
+      "console": "integratedTerminal",
+      "justMyCode": false,
+      "args": [],
+      "env": {
+        "OPENAI_API_KEY": "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",
+        "all_proxy": "socks5://127.0.0.1:10808"
+      }
     }
   ]
 }
